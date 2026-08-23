@@ -33,7 +33,7 @@ En användare sås automatiskt vid första starten, så du slipper registrera di
 | Steg i övningen | Var i koden eller appen |
 |-----------------|-------------------------|
 | Steg 2–5, aktivera och verifiera TOTP | Kör flödet i appen: **Konto → Two-factor authentication → Set up authenticator app**. Koden bakom ligger i `Components/Account/Pages/Manage/EnableAuthenticator.razor` (`GetAuthenticatorKeyAsync`, `VerifyTwoFactorTokenAsync`). |
-| Steg 7, kontolåsning | `Program.cs`, se `TODO steg 7`. Lägg `options.Lockout`-raderna i options-lambdan för `AddIdentityCore`, se [AddIdentityCore i stället för AddIdentity](#addidentitycore-i-stället-för-addidentity). |
+| Steg 7, kontolåsning | Två ställen. **1)** `Program.cs`, `TODO steg 7`: lägg `options.Lockout`-raderna i options-lambdan för `AddIdentityCore`, se [AddIdentityCore i stället för AddIdentity](#addidentitycore-i-stället-för-addidentity). **2)** `Components/Account/Pages/Login.razor`, cirka rad 124: byt `lockoutOnFailure: false` mot `true`. Mallen skickar redan en låst användare till `/Account/Lockout`. |
 | Steg 8, recovery codes | `Components/Account/Pages/Manage/GenerateRecoveryCodes.razor` använder `GenerateNewTwoFactorRecoveryCodesAsync`. Koderna lagras hashade av Identity och fungerar en gång var. |
 | Steg 9, motiveringarna | Skriv dem i `REPORT.md` (skapa filen) eller i din labbrapport. |
 
